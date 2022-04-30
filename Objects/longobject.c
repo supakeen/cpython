@@ -5885,16 +5885,33 @@ int_to_base_impl(PyObject *self, PyObject *alphabet)
 @classmethod
 int.from_base
 
+    s: unicode()
+        The string to convert.
+
+    base: Py_ssize_t = 10
+        The base to use.
+
+    *
+
     alphabet: unicode(c_default="NULL") = "None"
         The alphabet to use for the base conversion. The length of the alphabet
         is the base.
 
-Return the integer represented by the given array of bytes in a given alphabet.
+Convert a string to an integer.
+
+s must be a string, bytes object, or bytearray. If base is given but alphabet
+is not then valid values for base are are 0 and 2-36. Base 0 means to interpret
+the base from the string as an integer literal.
+
+alphabet must be a string, bytes object, or bytearray. If alphabet is given then
+then it is used as the alphabet for string conversion. In case both base and
+alphabet are supplied then base must be the same as the length of alphabet.
 [clinic start generated code]*/
 
 static PyObject *
-int_from_base_impl(PyTypeObject *type, PyObject *alphabet)
-/*[clinic end generated code: output=1a1031b5c05aa5d0 input=6eb1154590805272]*/
+int_from_base_impl(PyTypeObject *type, PyObject *s, Py_ssize_t base,
+                   PyObject *alphabet)
+/*[clinic end generated code: output=2f7d796942a84c5f input=1d98e21776b55aa6]*/
 {
     PyObject *long_obj;
     return long_obj;
