@@ -5863,6 +5863,44 @@ int_from_bytes_impl(PyTypeObject *type, PyObject *bytes_obj,
     return long_obj;
 }
 
+/*[clinic input]
+int.to_base
+
+    alphabet: unicode(c_default="NULL") = "None"
+        The alphabet to use for the base conversion. The length of the alphabet
+        is the base.
+
+Return a string representing an integer in a given base alphabet.
+[clinic start generated code]*/
+
+static PyObject *
+int_to_base_impl(PyObject *self, PyObject *alphabet)
+/*[clinic end generated code: output=dc242c228c14a504 input=32de979c3bb85a46]*/
+{
+    PyObject *bytes;
+    return bytes;
+}
+
+/*[clinic input]
+@classmethod
+int.from_base
+
+    alphabet: unicode(c_default="NULL") = "None"
+        The alphabet to use for the base conversion. The length of the alphabet
+        is the base.
+
+Return the integer represented by the given array of bytes in a given alphabet.
+[clinic start generated code]*/
+
+static PyObject *
+int_from_base_impl(PyTypeObject *type, PyObject *alphabet)
+/*[clinic end generated code: output=1a1031b5c05aa5d0 input=6eb1154590805272]*/
+{
+    PyObject *long_obj;
+    return long_obj;
+}
+
+
 static PyObject *
 long_long_meth(PyObject *self, PyObject *Py_UNUSED(ignored))
 {
@@ -5876,6 +5914,8 @@ static PyMethodDef long_methods[] = {
     INT_BIT_COUNT_METHODDEF
     INT_TO_BYTES_METHODDEF
     INT_FROM_BYTES_METHODDEF
+    INT_TO_BASE_METHODDEF
+    INT_FROM_BASE_METHODDEF
     INT_AS_INTEGER_RATIO_METHODDEF
     {"__trunc__",       long_long_meth, METH_NOARGS,
      "Truncating an Integral returns itself."},

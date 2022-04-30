@@ -391,4 +391,100 @@ skip_optional_kwonly:
 exit:
     return return_value;
 }
-/*[clinic end generated code: output=16a375d93769b227 input=a9049054013a1b77]*/
+
+PyDoc_STRVAR(int_to_base__doc__,
+"to_base($self, /, alphabet=\'None\')\n"
+"--\n"
+"\n"
+"Return a string representing an integer in a given base alphabet.\n"
+"\n"
+"  alphabet\n"
+"    The alphabet to use for the base conversion. The length of the alphabet\n"
+"    is the base.");
+
+#define INT_TO_BASE_METHODDEF    \
+    {"to_base", (PyCFunction)(void(*)(void))int_to_base, METH_FASTCALL|METH_KEYWORDS, int_to_base__doc__},
+
+static PyObject *
+int_to_base_impl(PyObject *self, PyObject *alphabet);
+
+static PyObject *
+int_to_base(PyObject *self, PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames)
+{
+    PyObject *return_value = NULL;
+    static const char * const _keywords[] = {"alphabet", NULL};
+    static _PyArg_Parser _parser = {NULL, _keywords, "to_base", 0};
+    PyObject *argsbuf[1];
+    Py_ssize_t noptargs = nargs + (kwnames ? PyTuple_GET_SIZE(kwnames) : 0) - 0;
+    PyObject *alphabet = NULL;
+
+    args = _PyArg_UnpackKeywords(args, nargs, NULL, kwnames, &_parser, 0, 1, 0, argsbuf);
+    if (!args) {
+        goto exit;
+    }
+    if (!noptargs) {
+        goto skip_optional_pos;
+    }
+    if (!PyUnicode_Check(args[0])) {
+        _PyArg_BadArgument("to_base", "argument 'alphabet'", "str", args[0]);
+        goto exit;
+    }
+    if (PyUnicode_READY(args[0]) == -1) {
+        goto exit;
+    }
+    alphabet = args[0];
+skip_optional_pos:
+    return_value = int_to_base_impl(self, alphabet);
+
+exit:
+    return return_value;
+}
+
+PyDoc_STRVAR(int_from_base__doc__,
+"from_base($type, /, alphabet=\'None\')\n"
+"--\n"
+"\n"
+"Return the integer represented by the given array of bytes in a given alphabet.\n"
+"\n"
+"  alphabet\n"
+"    The alphabet to use for the base conversion. The length of the alphabet\n"
+"    is the base.");
+
+#define INT_FROM_BASE_METHODDEF    \
+    {"from_base", (PyCFunction)(void(*)(void))int_from_base, METH_FASTCALL|METH_KEYWORDS|METH_CLASS, int_from_base__doc__},
+
+static PyObject *
+int_from_base_impl(PyTypeObject *type, PyObject *alphabet);
+
+static PyObject *
+int_from_base(PyTypeObject *type, PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames)
+{
+    PyObject *return_value = NULL;
+    static const char * const _keywords[] = {"alphabet", NULL};
+    static _PyArg_Parser _parser = {NULL, _keywords, "from_base", 0};
+    PyObject *argsbuf[1];
+    Py_ssize_t noptargs = nargs + (kwnames ? PyTuple_GET_SIZE(kwnames) : 0) - 0;
+    PyObject *alphabet = NULL;
+
+    args = _PyArg_UnpackKeywords(args, nargs, NULL, kwnames, &_parser, 0, 1, 0, argsbuf);
+    if (!args) {
+        goto exit;
+    }
+    if (!noptargs) {
+        goto skip_optional_pos;
+    }
+    if (!PyUnicode_Check(args[0])) {
+        _PyArg_BadArgument("from_base", "argument 'alphabet'", "str", args[0]);
+        goto exit;
+    }
+    if (PyUnicode_READY(args[0]) == -1) {
+        goto exit;
+    }
+    alphabet = args[0];
+skip_optional_pos:
+    return_value = int_from_base_impl(type, alphabet);
+
+exit:
+    return return_value;
+}
+/*[clinic end generated code: output=9f12592f356d9f2f input=a9049054013a1b77]*/
